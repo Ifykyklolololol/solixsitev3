@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SolixHub Design System - Pink/Purple Galaxy Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core Galaxy Theme */
+    --background: 270 35% 8%;
+    --foreground: 310 100% 95%;
+
+    /* Card System with Glassmorphism */
+    --card: 270 35% 12%;
+    --card-foreground: 310 100% 95%;
+
+    /* Popover Elements */
+    --popover: 270 35% 10%;
+    --popover-foreground: 310 100% 95%;
+
+    /* Primary Pink-Purple Gradient */
+    --primary: 300 100% 60%;
+    --primary-foreground: 270 35% 8%;
+    --primary-glow: 320 100% 70%;
+
+    /* Secondary Purple Tones */
+    --secondary: 280 60% 25%;
+    --secondary-foreground: 310 100% 95%;
+
+    /* Muted Galaxy Colors */
+    --muted: 270 35% 15%;
+    --muted-foreground: 290 50% 70%;
+
+    /* Accent Bright Pink */
+    --accent: 320 100% 65%;
+    --accent-foreground: 270 35% 8%;
+
+    /* Destructive Red-Pink */
+    --destructive: 350 100% 65%;
+    --destructive-foreground: 310 100% 95%;
+
+    /* Border & Input Galaxy Style */
+    --border: 280 60% 20%;
+    --input: 270 35% 15%;
+    --ring: 300 100% 60%;
+
+    /* Custom Galaxy Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(300 100% 60%), hsl(280 100% 65%), hsl(320 100% 70%));
+    --gradient-secondary: linear-gradient(180deg, hsl(270 35% 12%), hsl(280 60% 8%));
+    --gradient-galaxy: radial-gradient(ellipse at center, hsl(320 100% 15%) 0%, hsl(270 35% 8%) 70%);
+    --gradient-card: linear-gradient(135deg, hsla(280 60% 25% / 0.3), hsla(300 100% 60% / 0.1));
+
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 40px hsl(300 100% 60% / 0.3);
+    --shadow-pink: 0 10px 30px hsl(320 100% 70% / 0.2);
+    --shadow-galaxy: 0 20px 60px hsl(270 35% 8% / 0.8);
+
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Enhanced Galaxy Theme for Dark Mode */
+    --background: 270 35% 4%;
+    --foreground: 310 100% 98%;
+
+    --card: 270 35% 8%;
+    --card-foreground: 310 100% 98%;
+
+    --popover: 270 35% 6%;
+    --popover-foreground: 310 100% 98%;
+
+    --primary: 320 100% 70%;
+    --primary-foreground: 270 35% 4%;
+    --primary-glow: 300 100% 80%;
+
+    --secondary: 280 60% 15%;
+    --secondary-foreground: 310 100% 98%;
+
+    --muted: 270 35% 10%;
+    --muted-foreground: 290 50% 80%;
+
+    --accent: 300 100% 75%;
+    --accent-foreground: 270 35% 4%;
+
+    --destructive: 350 100% 70%;
+    --destructive-foreground: 310 100% 98%;
+
+    --border: 280 60% 15%;
+    --input: 270 35% 10%;
+    --ring: 320 100% 70%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--gradient-galaxy);
+  }
+
+  /* Galaxy Background Animation */
+  .galaxy-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: var(--gradient-galaxy);
+  }
+
+  .galaxy-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    background: hsl(var(--primary-glow));
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .particle:nth-child(odd) {
+    animation-delay: -2s;
+    background: hsl(var(--accent));
+  }
+
+  .particle:nth-child(3n) {
+    animation-delay: -4s;
+    background: hsl(var(--primary));
+  }
+
+  /* Glassmorphism Effects */
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(var(--border) / 0.2);
+    box-shadow: var(--shadow-galaxy);
+  }
+
+  /* Gaming Text Effects */
+  .gaming-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px hsl(var(--primary-glow) / 0.5);
+    filter: drop-shadow(0 2px 4px hsl(var(--primary) / 0.3));
+  }
+
+  /* Hover Glow Effects */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+      opacity: 0.8;
+    }
+  }
+
+  /* Grid Pattern */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsla(var(--primary) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+}
