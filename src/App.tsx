@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Scripts from "./pages/Scripts";
 import Loader from "./pages/Loader";
-import RawLoader from "./pages/RawLoader";
 import GameDetail from "./pages/GameDetail";
 import Tutorials from "./pages/Tutorials";
 import Social from "./pages/Social";
@@ -26,7 +25,6 @@ const App = () => (
           <Route path="/scripts/:slug" element={<GameDetail />} />
           <Route path="/tutorials" element={<Tutorials />} />
           <Route path="/social" element={<Social />} />
-          <Route path="/loader" element={<RawLoader />} />
           <Route path="/loader-ui" element={<Loader />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
